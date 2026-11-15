@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#eaf5e8">
+<title>Eco Purge | A Little Brain Break</title>
+<style>
+:root{--green:#246b4b;--dark:#173f30;--lime:#b8df8a;--paper:#fbfff8;--mint:#e7f4e8}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--dark);background:radial-gradient(circle at 15% 10%,#fff 0 7%,transparent 28%),linear-gradient(140deg,#e4f4e8,#f8f6df 55%,#e4f0e9);overflow-x:hidden}
+.card{width:min(100%,540px);padding:28px 22px 26px;text-align:center;background:rgba(255,255,255,.86);border:1px solid #fff;border-radius:28px;box-shadow:0 18px 55px #28583b20}
+.kicker{font-size:11px;font-weight:850;letter-spacing:.17em;text-transform:uppercase;color:#588565}
+h1{font-size:clamp(29px,8vw,42px);line-height:1.08;color:var(--dark);margin:12px 0}
+p{line-height:1.6;max-width:410px;margin:9px auto}
+.illustration{font-size:58px;margin:12px 0 4px;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-7px) rotate(4deg)}}
+button{border:0;border-radius:999px;padding:14px 22px;margin:12px 5px 4px;font-size:15px;font-weight:800;cursor:pointer;color:white;background:linear-gradient(135deg,#39845b,#246b4b);box-shadow:0 8px 18px #246b4b30;transition:transform .15s}
+button:active{transform:scale(.95)}
+button.alt{background:#e8f3e7;color:#286345;box-shadow:none;border:1px solid #cfe4ce}
+.hidden{display:none!important}
+.progress{height:9px;max-width:310px;margin:18px auto 8px;background:#e3eee1;border-radius:99px;overflow:hidden}
+.progress div{height:100%;width:0;background:linear-gradient(90deg,#9bcf78,#39845b);transition:width .2s}
+.pill{display:inline-block;background:#eef7eb;color:#3e7750;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:800}
+.options{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:17px auto}
+.option{background:#fff;color:#326b49;border:1px solid #cfe3cc;box-shadow:none;padding:11px 14px}
+.option.selected{background:#e4f3df;border-color:#6ba777}
+.video{margin:18px auto 0;border-radius:17px;overflow:hidden;background:#17271e;box-shadow:0 10px 28px #173f3028}
+iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
+.small{font-size:12px;color:#68836d}
+a{color:#246b4b;font-weight:800}
+.float{position:fixed;pointer-events:none;font-size:23px;z-index:5;animation:rise 1.6s ease-out forwards}
+@keyframes rise{to{transform:translateY(-125px) rotate(30deg);opacity:0}}
+.tag{font-size:12px;color:#477653;font-weight:750;margin-top:9px}
+</style>
+</head>
+<body>
+<main class="card">
+<section id="welcome">
+  <div class="kicker">Eco Purge · Founder’s brain-break</div>
+  <div class="illustration">🌱</div>
+  <h1>Hello, brilliant mind.</h1>
+  <p>Big ideas deserve the occasional fun break. There’s a little surprise waiting for you — but first, a tiny challenge.</p>
+  <div class="tag">Curiosity on. Serious founder mode off. 😉</div>
+  <button id="start">Start the mini challenge →</button>
+  <p class="small">No spreadsheets. No meetings. Just a few taps.</p>
+</section>
+
+<section id="game" class="hidden">
+  <div class="kicker">Level 1 · Green thinking</div>
+  <div class="illustration" id="plant">🌿</div>
+  <h1 id="gameTitle">Grow the idea!</h1>
+  <p id="gameText">Tap the button 5 times to grow your little idea into something big.</p>
+  <div class="progress"><div id="bar"></div></div>
+  <div class="pill"><span id="score">0</span> / 5 growth points</div><br>
+  <button id="tap">Give it a boost 🌱</button>
+</section>
+
+<section id="quiz" class="hidden">
+  <div class="kicker">Level 2 · Founder instinct</div>
+  <div class="illustration">🧠</div>
+  <h1>A quick-fire question</h1>
+  <p>What does every brilliant idea need to make a real impact?</p>
+  <div class="options">
+    <button class="option">A) Curiosity 🔎</button>
+    <button class="option">B) Consistency 🔁</button>
+    <button class="option">C) A team that believes 🌍</button>
+  </div>
+  <p id="reply" class="small" aria-live="polite">Choose your answer. Founder’s instinct is usually right.</p>
+  <button id="unlock" class="hidden">Unlock the surprise 🎁</button>
+</section>
+
+<section id="surprise" class="hidden">
+  <div class="kicker">Challenge complete · Eco Purge approved</div>
+  <div class="illustration">🏆🌍</div>
+  <h1>Brilliant minds deserve brilliant surprises.</h1>
+  <p>Keep building, keep questioning, and keep making good things happen. Here’s the video — enjoy! 😊</p>
+  <div class="video">
+    <iframe src="https://drive.google.com/file/d/13LXrcnJxMK3iZNLBoKFdjVd7UmYpSiQt/preview" allow="autoplay; encrypted-media" allowfullscreen title="Shared video"></iframe>
+  </div>
+  <p class="small">If the player doesn't load, <a href="https://drive.google.com/file/d/13LXrcnJxMK3iZNLBoKFdjVd7UmYpSiQt/view?usp=drivesdk" target="_blank" rel="noopener">watch it in Google Drive ↗</a></p>
+  <button class="alt" id="again">Replay the challenge ↻</button>
+</section>
+</main>
+<script>
+const ids=["welcome","game","quiz","surprise"];
+function show(id){ids.forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id))}
+function pop(x,y){let e=document.createElement("span");e.className="float";e.textContent=["🍃","✨","🌱","♻️"][Math.floor(Math.random()*4)];e.style.left=x+"px";e.style.top=y+"px";document.body.appendChild(e);setTimeout(()=>e.remove(),1700)}
+document.getElementById("start").onclick=e=>{pop(e.clientX,e.clientY);show("game")};
+let n=0;
+const tap=document.getElementById("tap");
+tap.onclick=e=>{pop(e.clientX,e.clientY);n=Math.min(5,n+1);document.getElementById("score").textContent=n;document.getElementById("bar").style.width=(n*20)+"%";document.getElementById("plant").textContent=["🌱","🌿","🪴","🌳","🌳✨","🌍"][n];if(n===5){document.getElementById("gameTitle").textContent="Idea fully grown!";document.getElementById("gameText").textContent="Nice work. One final founder-level decision…";tap.textContent="Next level →";tap.onclick=()=>show("quiz")}};
+document.querySelectorAll(".option").forEach(b=>b.onclick=()=>{document.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");document.getElementById("reply").textContent="Strong answer. We’ll accept all three — impact takes a mix of everything!";document.getElementById("unlock").classList.remove("hidden")});
+document.getElementById("unlock").onclick=e=>{pop(e.clientX,e.clientY);show("surprise")};
+document.getElementById("again").onclick=()=>{n=0;document.getElementById("score").textContent="0";document.getElementById("bar").style.width="0";document.getElementById("plant").textContent="🌿";document.getElementById("gameTitle").textContent="Grow the idea!";document.getElementById("gameText").textContent="Tap the button 5 times to grow your little idea into something big.";tap.textContent="Give it a boost 🌱";tap.onclick=null;document.getElementById("reply").textContent="Choose your answer. Founder’s instinct is usually right.";document.getElementById("unlock").classList.add("hidden");document.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));show("welcome")};
+</script>
+</body>
+</html>
